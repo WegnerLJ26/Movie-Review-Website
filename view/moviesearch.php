@@ -1,13 +1,14 @@
 <!-- right column: content section -->
-
+  <div class="searchBar">
   <div class='col-xs-9'>
   		<form class='form-inline' action='index.php?mode=searchMovies' method='post'>
         <div class='form-group'>
           <label for='search' class='sr-only'>Search</label>
-          <input type='text' class='form-control' name="searchInput" id="searchInput" placeholder="Search">
+          <input type='text' class='form-control' style="margin-top: 1em; width: 150%;" name="searchInput" id="searchInput" placeholder="Search">
         </div>
-        <button type='submit' class='btn btn-default'>Search</button>
+        <button type='submit' class='btn btn-default' style="margin-top: 1em; margin-left: 7em;">Search</button>
       </form>
+  </div>
   </div>
 
   <!-- This section will display a movie search result -->
@@ -26,13 +27,14 @@
 
   						?>
   						<!--Creating table to display the result-->
-  						<table class='table table-bordered'>
+            <div id="searchMovsTable">
+  						<table class='table table-bordered' style="margin-top: 2em;">
   							<thead>
   								<tr>
-  									<td>Title</td>
-  									<td>Year</td>
-  									<td>Rating</td>
-  									<td>Number of Ratings</td>
+  									<td><b>Title</b></td>
+  									<td><b>Year</b></td>
+  									<td><b>Rating</b></td>
+  									<td><b>Number of Ratings</b></td>
   								</tr>
   							</thead>
   							<tbody>
@@ -44,6 +46,7 @@
   								</tr>
   							</tbody>
   						</table>
+            </div>
   			<?php		 } ?>
  </div>
 

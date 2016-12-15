@@ -74,6 +74,7 @@ $totalCount = 0;
 
 </div>
 
+<div class='col-xs-3'></div>
 <div class='col-xs-9'>
 	<h3>Bollywood Movie Reviews</h3>
 	<?php

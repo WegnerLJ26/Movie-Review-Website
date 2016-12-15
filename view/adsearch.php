@@ -4,9 +4,9 @@
   		<form class='form-inline' action='index.php?mode=searchAD' method='post'>
         <div class='form-group'>
           <label for='search' class='sr-only'>Search</label>
-          <input type='text' class='form-control' name="searchInput" id="searchInput" placeholder="Search">
+          <input type='text' class='form-control' style="margin-top: 1em; width: 150%;" name="searchInput" id="searchInput" placeholder="Search">
         </div>
-        <button type='submit' class='btn btn-default'>Search</button>
+        <button type='submit' class='btn btn-default' style="margin-top: 1em; margin-left: 7em;">Search</button>
       </form>
   </div>
 
@@ -26,12 +26,12 @@
 
   						?>
   						<!--Creating table to display the result-->
-  						<table class='table table-bordered'>
+  						<table class='table table-bordered' style="margin-top: 2em;">
   							<thead>
   								<tr>
-  									<td>Name</td>
-  									<td>Known For</td>
-  									<td>Birth Date</td>
+  									<td><b>Name</b></td>
+  									<td><b>Known For</b></td>
+  									<td><b>Birth Date</b></td>
   								</tr>
   							</thead>
   							<tbody>
