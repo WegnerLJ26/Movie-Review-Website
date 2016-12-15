@@ -35,7 +35,14 @@ $totalCount = 0;
 	<h3>Hollywood Movie Reviews</h3>
 	<?php
 		if(isset($americanReviews)){
-			echo "<table class='table'>";
+			echo "<table class='table'>
+					<thead>
+						<tr>
+							<div class='col-xs-3'><td><b>Title</b></td></div>
+							<div class='col-xs-3'><td><b>Rating</b></td></div>
+							<div class='col-xs-3'><td><b>Review</b></td></div>
+						</tr>
+					</thead>";
 
 			for ($i=0; $i<count($americanReviews); $i++){
 				$mov_review = $americanReviews[$i];
@@ -51,14 +58,7 @@ $totalCount = 0;
 				$mov_title = getOne($sql, $parameters);
 				$title = $mov_title['Title'];
 
-				echo "<thead>
-						<tr>
-							<div class='col-xs-3'><td>Title</td></div>
-							<div class='col-xs-3'><td>Rating</td></div>
-							<div class='col-xs-3'><td>Review</td></div>
-						</tr>
-					</thead>
-					<tbody>
+				echo "<tbody>
 						<tr>
 							<div class='col-xs-3'><td>$title</td></div>
 							<div class='col-xs-3'><td>$rating</td></div>
@@ -78,7 +78,14 @@ $totalCount = 0;
 	<h3>Bollywood Movie Reviews</h3>
 	<?php
 		if(isset($bwoodReviews)){
-			echo "<table class='table'>";
+			echo "<table class='table'>
+					<thead>
+						<tr>
+							<div class='col-xs-3'><td><b>Title</b></td></div>
+							<div class='col-xs-3'><td><b>Rating</b></td></div>
+							<div class='col-xs-3'><td><b>Review</b></td></div>
+						</tr>
+					</thead>";
 
 			for ($i=0; $i<count($bwoodReviews); $i++){
 				$mov_review = $bwoodReviews[$i];
@@ -94,14 +101,7 @@ $totalCount = 0;
 				$mov_title = getOne($sql, $parameters);
 				$title = $mov_title['Title'];
 
-				echo "<thead>
-						<tr>
-							<div class='col-xs-3'><td>Title</td></div>
-							<div class='col-xs-3'><td>Rating</td></div>
-							<div class='col-xs-3'><td>Review</td></div>
-						</tr>
-					</thead>
-					<tbody>
+				echo "<tbody>
 						<tr>
 							<div class='col-xs-3'><td>$title</td></div>
 							<div class='col-xs-3'><td>$rating</td></div>
@@ -122,7 +122,14 @@ $totalCount = 0;
 	<h3>Actor Reviews</h3>
 	<?php
 		if(isset($actorReviews)){
-			echo "<table class='table'>";
+			echo "<table class='table'>
+					<thead>
+						<tr>
+							<div class='col-xs-3'><td><b>Name</b></td></div>
+							<div class='col-xs-3'><td><b>Rating</b></td></div>
+							<div class='col-xs-3'><td><b>Review</b></td></div>
+						</tr>
+					</thead>";
 
 			for ($i=0; $i<count($actorReviews); $i++){
 				$act_review = $actorReviews[$i];
@@ -138,14 +145,7 @@ $totalCount = 0;
 				$actorName = getOne($sql, $parameters);
 				$name = $actorName['Name'];
 
-				echo "<thead>
-						<tr>
-							<div class='col-xs-3'><td>Name</td></div>
-							<div class='col-xs-3'><td>Rating</td></div>
-							<div class='col-xs-3'><td>Review</td></div>
-						</tr>
-					</thead>
-					<tbody>
+				echo "<tbody>
 						<tr>
 							<div class='col-xs-3'><td>$name</td></div>
 							<div class='col-xs-3'><td>$rating</td></div>
@@ -166,7 +166,14 @@ $totalCount = 0;
 	<h3>Director Reviews</h3>
 	<?php
 		if(isset($directorReviews)){
-			echo "<table class='table'>";
+			echo "<table class='table'>
+					<thead>
+						<tr>
+							<div class='col-xs-3'><td><b>Name</b></td></div>
+							<div class='col-xs-3'><td><b>Rating</b></td></div>
+							<div class='col-xs-3'><td><b>Review</b></td></div>
+						</tr>
+					</thead>";
 
 			for ($i=0; $i<count($directorReviews); $i++){
 				$dir_review = $directorReviews[$i];
@@ -182,14 +189,7 @@ $totalCount = 0;
 				$directorName = getOne($sql, $parameters);
 				$name = $directorName['Name'];
 
-				echo "<thead>
-						<tr>
-							<td>Name</td>
-							<td>Rating</td>
-							<td>Review</td>
-						</tr>
-					</thead>
-					<tbody>
+				echo "<tbody>
 						<tr>
 							<td>$name</td>
 							<td>$rating</td>
@@ -212,20 +212,20 @@ $totalCount = 0;
 	<table class='table'>
 		<thead>
 			<tr>
-				<td><h2>Hollywood Movie Reviews</h2></td>
-				<td><h2>Bollywood Movie Reviews</h2></td>
-				<td><h2>Actor Reviews</h2></td>
-				<td><h2>Director Reviews</h2></td>
-				<td><h2>Total Reviews</h2></td>
+				<td><h4>Hollywood Movie Reviews</h4></td>
+				<td><h4>Bollywood Movie Reviews</h4></td>
+				<td><h4>Actor Reviews</h4></td>
+				<td><h4>Director Reviews</h4></td>
+				<td><h4>Total Reviews</h4></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td><b><?php echo $moviesCount ?></b></td>
-				<td><b><?php echo $bwoodCount ?></b></td>
-				<td><b><?php echo $actorsCount ?></b></td>
-				<td><b><?php echo $directorsCount ?></b></td>
-				<td><b><?php echo $totalCount ?></b></td>
+				<td><i><?php echo $moviesCount ?></i></td>
+				<td><i><?php echo $bwoodCount ?></i></td>
+				<td><i><?php echo $actorsCount ?></i></td>
+				<td><i><?php echo $directorsCount ?></i></td>
+				<td><i><?php echo $totalCount ?></i></td>
 			</tr>
 		</tbody>
 	</table>

@@ -13,7 +13,14 @@ $directorReviews = getAll($sql, $parameters);
 	<h3>Director Reviews</h3>
 	<?php
 		if(isset($directorReviews)){
-			echo "<table class='table'>";
+			echo "<table class='table'>
+					<thead>
+						<tr>
+							<td><b>Name</b></td>
+							<td><b>Rating</b></td>
+							<td><b>Review</b></td>
+						</tr>
+					</thead>";
 
 			for ($i=0; $i<count($directorReviews); $i++){
 				$dir_review = $directorReviews[$i];
@@ -28,14 +35,7 @@ $directorReviews = getAll($sql, $parameters);
 				$directorName = getOne($sql, $parameters);
 				$name = $directorName['Name'];
 
-				echo "<thead>
-						<tr>
-							<td>Name</td>
-							<td>Rating</td>
-							<td>Review</td>
-						</tr>
-					</thead>
-					<tbody>
+				echo "<tbody>
 						<tr>
 							<td>$name</td>
 							<td>$rating</td>

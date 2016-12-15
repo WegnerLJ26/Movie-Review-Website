@@ -18,7 +18,14 @@ $bwoodReviews = getAll($sql, $parameters);
 	<h3>Hollywood Movie Reviews</h3>
 	<?php
 		if(isset($americanReviews)){
-			echo "<table class='table'>";
+			echo "<table class='table'>
+					<thead>
+						<tr>
+							<td><b>Title</b></td>
+							<td><b>Rating</b></td>
+							<td><b>Review</b></td>
+						</tr>
+					</thead>";
 
 			for ($i=0; $i<count($americanReviews); $i++){
 				$mov_review = $americanReviews[$i];
@@ -33,14 +40,7 @@ $bwoodReviews = getAll($sql, $parameters);
 				$mov_title = getOne($sql, $parameters);
 				$title = $mov_title['Title'];
 
-				echo "<thead>
-						<tr>
-							<td>Title</td>
-							<td>Rating</td>
-							<td>Review</td>
-						</tr>
-					</thead>
-					<tbody>
+				echo "<tbody>
 						<tr>
 							<td>$title</td>
 							<td>$rating</td>
@@ -56,11 +56,20 @@ $bwoodReviews = getAll($sql, $parameters);
 
 </div>
 
+<!-- Creating <div class='col-xs-3'> to correct spacing issues -->
+<div class='col-xs-3'></div>
 <div class='col-xs-9'>
 	<h3>Bollywood Movie Reviews</h3>
 	<?php
 		if(isset($bwoodReviews)){
-			echo "<table class='table'>";
+			echo "<table class='table'>
+					<thead>
+						<tr>
+							<td><b>Title</b></td>
+							<td><b>Rating</b></td>
+							<td><b>Review</b></td>
+						</tr>
+					</thead>";
 
 			for ($i=0; $i<count($bwoodReviews); $i++){
 				$mov_review = $bwoodReviews[$i];
@@ -75,14 +84,7 @@ $bwoodReviews = getAll($sql, $parameters);
 				$mov_title = getOne($sql, $parameters);
 				$title = $mov_title['Title'];
 
-				echo "<thead>
-						<tr>
-							<td>Title</td>
-							<td>Rating</td>
-							<td>Review</td>
-						</tr>
-					</thead>
-					<tbody>
+				echo "<tbody>
 						<tr>
 							<td>$title</td>
 							<td>$rating</td>

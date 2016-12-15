@@ -13,7 +13,14 @@ $actorReviews = getAll($sql, $parameters);
 	<h3>Actor Reviews</h3>
 	<?php
 		if(isset($actorReviews)){
-			echo "<table class='table'>";
+			echo "<table class='table'>
+					<thead>
+						<tr>
+							<td><b>Name</b></td>
+							<td><b>Rating</b></td>
+							<td><b>Review</b></td>
+						</tr>
+					</thead>";
 
 			for ($i=0; $i<count($actorReviews); $i++){
 				$act_review = $actorReviews[$i];
@@ -28,14 +35,7 @@ $actorReviews = getAll($sql, $parameters);
 				$actorName = getOne($sql, $parameters);
 				$name = $actorName['Name'];
 
-				echo "<thead>
-						<tr>
-							<td>Name</td>
-							<td>Rating</td>
-							<td>Review</td>
-						</tr>
-					</thead>
-					<tbody>
+				echo "<tbody>
 						<tr>
 							<td>$name</td>
 							<td>$rating</td>
