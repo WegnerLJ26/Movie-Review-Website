@@ -13,12 +13,13 @@ $actorReviews = getAll($sql, $parameters);
 	<h3>Actor Reviews</h3>
 	<?php
 		if(isset($actorReviews)){
-			echo "<table class='table'>
+			echo "<form action='index.php?mode=deleteReview' method='post'>
+				<table class='table'>
 					<thead>
 						<tr>
-							<td><b>Name</b></td>
-							<td><b>Rating</b></td>
-							<td><b>Review</b></td>
+							<div class='col-xs-3'><td><b>Name</b></td></div>
+							<div class='col-xs-3'><td><b>Rating</b></td></div>
+							<div class='col-xs-3'><td><b>Review</b></td></div>
 						</tr>
 					</thead>";
 
@@ -40,11 +41,12 @@ $actorReviews = getAll($sql, $parameters);
 							<td>$name</td>
 							<td>$rating</td>
 							<td>$rating_text</td>
+							<td><button class='btn btn-default' type='submit' style='background-color: blue; color: white;'>Delete</button></td>
 						</tr>
-					</tbody>";
+					</tbody><input type='hidden' name='reviewdb' value='actor_reviews' /><input type='hidden' name='review_id' value='{$act_review['review_id']}' />";
 			}
 
-			echo "</table>";
+			echo "</table></form>";
 		}
 
 	?>

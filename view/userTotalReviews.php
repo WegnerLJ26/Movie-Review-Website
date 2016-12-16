@@ -32,10 +32,13 @@ $totalCount = 0;
 ?>
 
 <div class='col-xs-9'>
-	<h3>Hollywood Movie Reviews</h3>
+	
 	<?php
 		if(isset($americanReviews)){
-			echo "<table class='table'>
+			?><h3>Hollywood Movie Reviews</h3>
+			<?php
+			echo "<form action='index.php?mode=deleteReview' method='post'>
+				<table class='table'>
 					<thead>
 						<tr>
 							<div class='col-xs-3'><td><b>Title</b></td></div>
@@ -63,11 +66,13 @@ $totalCount = 0;
 							<div class='col-xs-3'><td>$title</td></div>
 							<div class='col-xs-3'><td>$rating</td></div>
 							<div class='col-xs-3'><td>$rating_text</td></div>
+							<div class='deleteButton'><div class='col-xs-1'><td><button class='btn btn-default' type='submit' style='background-color: blue; color: white;'>Delete</button></td></div></div>
 						</tr>
-					</tbody>";
+					</tbody>
+					<input type='hidden' name='reviewdb' value='movie_reviews' /><input type='hidden' name='review_id' value='{$mov_review['review_id']}' />";
 			}
 
-			echo "</table>";
+			echo "</table></form>";
 		}
 
 	?>
@@ -76,10 +81,13 @@ $totalCount = 0;
 
 <div class='col-xs-3'></div>
 <div class='col-xs-9'>
-	<h3>Bollywood Movie Reviews</h3>
+	
 	<?php
 		if(isset($bwoodReviews)){
-			echo "<table class='table'>
+			?><h3>Bollywood Movie Reviews</h3>
+			<?php
+			echo "<form action='index.php?mode=deleteReview' method='post'>
+				<table class='table'>
 					<thead>
 						<tr>
 							<div class='col-xs-3'><td><b>Title</b></td></div>
@@ -89,12 +97,12 @@ $totalCount = 0;
 					</thead>";
 
 			for ($i=0; $i<count($bwoodReviews); $i++){
-				$mov_review = $bwoodReviews[$i];
+				$bwoodMov_review = $bwoodReviews[$i];
 				$bwoodCount++;
 
-				$bwoodID = $mov_review['bwoodID'];
-				$rating = $mov_review['rating'];
-				$rating_text = $mov_review['rating_text'];
+				$bwoodID = $bwoodMov_review['bwoodID'];
+				$rating = $bwoodMov_review['rating'];
+				$rating_text = $bwoodMov_review['rating_text'];
 
 				// define SQL statement to get the movie Title
 				$sql = "SELECT b.Title FROM bwoodmovies AS b WHERE b.bwoodID=:bwoodID";
@@ -107,8 +115,9 @@ $totalCount = 0;
 							<div class='col-xs-3'><td>$title</td></div>
 							<div class='col-xs-3'><td>$rating</td></div>
 							<div class='col-xs-3'><td>$rating_text</td></div>
+							<div class='deleteButton'><div class='col-xs-1'><td><button class='btn btn-default' type='submit' style='background-color: blue; color: white;'>Delete</button></td></div></div>
 						</tr>
-					</tbody>";
+					</tbody><input type='hidden' name='reviewdb' value='bwoodmovie_reviews' /><input type='hidden' name='review_id' value='{$bwoodMov_review['review_id']}' />";
 			}
 
 			echo "</table>";
@@ -120,10 +129,13 @@ $totalCount = 0;
 
 <div class='col-xs-3'></div>
 <div class='col-xs-9'>
-	<h3>Actor Reviews</h3>
+	
 	<?php
 		if(isset($actorReviews)){
-			echo "<table class='table'>
+			?><h3>Actor Reviews</h3>
+			<?php
+			echo "<form action='index.php?mode=deleteReview' method='post'>
+				<table class='table'>
 					<thead>
 						<tr>
 							<div class='col-xs-3'><td><b>Name</b></td></div>
@@ -150,12 +162,13 @@ $totalCount = 0;
 						<tr>
 							<div class='col-xs-3'><td>$name</td></div>
 							<div class='col-xs-3'><td>$rating</td></div>
-							<div class='col-xs-3'><td>$rating_text</td></div>
+							<div class='col-xs-2'><td>$rating_text</td></div>
+							<div class='deleteButton'><div class='col-xs-1'><td><button class='btn btn-default' type='submit' style='background-color: blue; color: white;'>Delete</button></td></div></div>
 						</tr>
-					</tbody>";
+					</tbody><input type='hidden' name='reviewdb' value='actor_reviews' /><input type='hidden' name='review_id' value='{$act_review['review_id']}' />";
 			}
 
-			echo "</table>";
+			echo "</table></form>";
 		}
 
 	?>
@@ -164,10 +177,13 @@ $totalCount = 0;
 
 <div class='col-xs-3'></div>
 <div class='col-xs-9'>
-	<h3>Director Reviews</h3>
+	
 	<?php
 		if(isset($directorReviews)){
-			echo "<table class='table'>
+			?><h3>Director Reviews</h3>
+			<?php
+			echo "<form action='index.php?mode=deleteReview' method='post'>
+				<table class='table'>
 					<thead>
 						<tr>
 							<div class='col-xs-3'><td><b>Name</b></td></div>
@@ -192,14 +208,15 @@ $totalCount = 0;
 
 				echo "<tbody>
 						<tr>
-							<td>$name</td>
-							<td>$rating</td>
-							<td>$rating_text</td>
+							<div class='col-xs-3'><td>$name</td></div>
+							<div class='col-xs-3'><td>$rating</td></div>
+							<div class='col-xs-3'><td>$rating_text</td></div>
+							<div class='deleteButton'><div class='col-xs-1'><td><button class='btn btn-default' type='submit' style='background-color: blue; color: white;'>Delete</button></td></div></div>
 						</tr>
-					</tbody>";
+					</tbody><input type='hidden' name='reviewdb' value='director_reviews' /><input type='hidden' name='review_id' value='{$dir_review['review_id']}' />";
 			}
 
-			echo "</table>";
+			echo "</table></form>";
 		}
 
 		$totalCount = $moviesCount + $bwoodCount + $actorsCount + $directorsCount;

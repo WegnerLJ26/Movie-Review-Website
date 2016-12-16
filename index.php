@@ -183,6 +183,16 @@
 
 		//include footer
 		include('view/footer.php');
+		break;
+	case 'deleteReview' :
+		include('view/header.php');
+		// include menu
+		include('view/sidemenu.php');
+
+		include('view/deleteReview.php');
+
+		//include footer
+		include('view/footer.php');
 		break;	
 	case 'email':
 		include('view/header.php');

@@ -21,13 +21,6 @@
 	$stmt->execute();
 
  }
- 	//Function not used anymore
-  function getProductList(){
-	// define SQL statement
-	$sql = 'select * from products ORDER BY product_type';
-	$data= getAll($sql);
-	return $data;
-  }
 
   function searchDBMovies($searchContent){
 
@@ -97,37 +90,6 @@
 	$parameters = array(':reviewerID'=>$_SESSION['reviewerID']);
 	$result = getOne($sql, $parameters);
 	return $result;
-  }
-	
-  function getHistory(){
-	//define a SQL statement
-	$sql = 'SELECT products.product_title, products.unit_price, sales.quantity FROM sales, products WHERE client_id=:client_id AND sales.product_id = products.product_id';
-
-	$parameters = array(':reviewerID'=>$_SESSION['reviewerID']);
-	$result = getAll($sql, $parameters);
-	return $result;
-  }
-  //Function not used anymore
-  function purchaseItem($client_id, $product_id, $quantity, $db){
-	$sql = "SELECT sales_id, quantity FROM sales WHERE client_id =:client_id AND product_id=:product_id";
-	$parameters = array(':client_id'=>$client_id, ':product_id'=>$product_id);
-	$result = getOne($sql, $parameters);
-	
-	if($result != null){
-		$quantity += $result['quantity'];
-		$sales_id = $result['sales_id'];
-		$sql = "UPDATE sales SET quantity=:quantity WHERE sales_id=:sales_id";
-		$parameters = array(':sales_id'=>$sales_id, ':quantity'=>$quantity);
-		$statement = $db->prepare($sql);
-		$statement->execute($parameters);
-		echo "<h2>Item has been purchased</h2>";
-	}else {
-
-	$sql = "INSERT INTO sales (client_id, product_id, quantity) values (:client_id, :product_id, :quantity)";
-	$parameters = array(':client_id'=>$client_id, ':product_id'=>$product_id, ':quantity'=>$quantity);
-	$result = getOne($sql, $parameters);
-	echo  "<h2>Item has been purchased</h2>";
-	}
   }
 
   function getOne($sql, $parameter = null){

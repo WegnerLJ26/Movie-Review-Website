@@ -35,7 +35,7 @@ $(document).ready(function(){
 
         </div>
  <!-- top image -->
- <img src='images/computer.jpg' alt='logo' id='banner' />
+ <img src='images/ledbars.jpg' height="300px" width="280px" alt='logo' id='banner' />
 
  </div>
 

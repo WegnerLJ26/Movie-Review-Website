@@ -18,12 +18,13 @@ $bwoodReviews = getAll($sql, $parameters);
 	<h3>Hollywood Movie Reviews</h3>
 	<?php
 		if(isset($americanReviews)){
-			echo "<table class='table'>
+			echo "<form action='index.php?mode=deleteReview' method='post'>
+				<table class='table'>
 					<thead>
 						<tr>
-							<td><b>Title</b></td>
-							<td><b>Rating</b></td>
-							<td><b>Review</b></td>
+							<div class='col-xs-3'><td><b>Title</b></td></div>
+							<div class='col-xs-3'><td><b>Rating</b></td></div>
+							<div class='col-xs-3'><td><b>Review</b></td></div>
 						</tr>
 					</thead>";
 
@@ -45,11 +46,13 @@ $bwoodReviews = getAll($sql, $parameters);
 							<td>$title</td>
 							<td>$rating</td>
 							<td>$rating_text</td>
+							<td><button class='btn btn-default' type='submit' style='background-color: blue; color: white;'>Delete</button></td>
 						</tr>
-					</tbody>";
+					</tbody>
+					<input type='hidden' name='reviewdb' value='movie_reviews' /><input type='hidden' name='review_id' value='{$mov_review['review_id']}' />";
 			}
 
-			echo "</table>";
+			echo "</table></form>";
 		}
 
 	?>
@@ -62,21 +65,22 @@ $bwoodReviews = getAll($sql, $parameters);
 	<h3>Bollywood Movie Reviews</h3>
 	<?php
 		if(isset($bwoodReviews)){
-			echo "<table class='table'>
+			echo "<form action='index.php?mode=deleteReview' method='post'>
+				<table class='table'>
 					<thead>
 						<tr>
-							<td><b>Title</b></td>
-							<td><b>Rating</b></td>
-							<td><b>Review</b></td>
+							<div class='col-xs-3'><td><b>Title</b></td></div>
+							<div class='col-xs-3'><td><b>Rating</b></td></div>
+							<div class='col-xs-3'><td><b>Review</b></td></div>
 						</tr>
 					</thead>";
 
 			for ($i=0; $i<count($bwoodReviews); $i++){
-				$mov_review = $bwoodReviews[$i];
+				$bwoodMov_review = $bwoodReviews[$i];
 
-				$bwoodID = $mov_review['bwoodID'];
-				$rating = $mov_review['rating'];
-				$rating_text = $mov_review['rating_text'];
+				$bwoodID = $bwoodMov_review['bwoodID'];
+				$rating = $bwoodMov_review['rating'];
+				$rating_text = $bwoodMov_review['rating_text'];
 
 				// define SQL statement to get the movie Title
 				$sql = "SELECT b.Title FROM bwoodmovies AS b WHERE b.bwoodID=:bwoodID";
@@ -89,11 +93,12 @@ $bwoodReviews = getAll($sql, $parameters);
 							<td>$title</td>
 							<td>$rating</td>
 							<td>$rating_text</td>
+							<td><button class='btn btn-default' type='submit' style='background-color: blue; color: white;'>Delete</button></td>
 						</tr>
-					</tbody>";
+					</tbody><input type='hidden' name='reviewdb' value='bwoodmovie_reviews' /><input type='hidden' name='review_id' value='{$bwoodMov_review['review_id']}' />";
 			}
 
-			echo "</table>";
+			echo "</table></form>";
 		}
 
 	?>
